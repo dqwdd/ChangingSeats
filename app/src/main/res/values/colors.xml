@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red">#FFFF0000</color>
+    <color name="gray">#C6C6C6</color>
+    <color name="grey">#E8E9EC</color>
+    <color name="main_purple">#6950E2</color>
+
+    <color name="lavender">#DBD8ED</color>
+    <color name="lavender_25">#40DBD8ED</color>
+
+    <color name="lightgreen">#E8FFE5</color>
+    <color name="lightpink">#FFEFEA</color>
+    <color name="lightblue">#1fbafd</color>
+    <color name="lightblue_switch">#96E2FF</color>
+    <color name="lightblue_check">#f4fcff</color>
+
+
+    <color name="boldblue">#000181</color>
+    <color name="color_primary">#007af3</color>
+    <color name="check_task2_red">#BC0E11</color>
+    <color name="light_gray">#EFEFED</color>
+
+    <color name="text_color_blue">#1F1C83</color>
+    <color name="text_color_red">#fd501e</color>
+    <color name="light_yellow">#FFDF83</color>
+
+
+
+    <color name="check_gray">#C9C9C9</color>
+    <color name="text_gray">#888888</color>
+    <color name="text_black">#3e3e3e</color>
+    <color name="text_small">#919191</color>
+
+    <color name="text_chart">#919191</color>
+
+    <color name="spinner_skyblue">#eaf9ff</color>
+    <color name="text_purple">#030640</color>
+    <color name="mint">#CDF3E2</color>
+    <color name="mint_25">#40CDF3E2</color>
+    <color name="pink">#FACAE1</color>
+    <color name="pink_25">#40FACAE1</color>
+    <color name="beige">#F3C499</color>
+    <color name="beige_25">#40F3C499</color>
+
+    <color name="d_day">#A3808080</color>
+    <color name="action_bar_title">#414043</color>
+    <color name="black_70">#B3000000</color>
+    <color name="yellow">#EDB71E</color>
+    <color name="blue">#4CAF50</color>
+
+    <color name="naver_color">#03C75A</color>
+    <color name="kakao_color">#FEE500</color>
+    <color name="facebook_color">#1877F2</color>
+
+
+    <!--    Main Color   -->
+
+    <color name="primaryColor">#477a4b</color>
+    <color name="primaryLightColor">#75a977</color>
+    <color name="primary10Color">#1A477a4b</color>
+    <color name="primary20Color">#33477a4b</color>
+    <color name="primary30Color">#4D477a4b</color>
+    <color name="primary50Color">#80477a4b</color>
+    <color name="primaryDarkColor">#1a4d22</color>
+    <color name="secondaryColor">#ffbf00</color>
+    <color name="secondary70Color">#B3FFBF00</color>
+    <color name="secondaryLightColor">#fff14e</color>
+    <color name="secondaryLightestColor">#FFDE7A</color>
+    <color name="secondary70LightestColor">#B3FFDE7A</color>
+    <color name="secondaryDarkColor">#c78f00</color>
+    <color name="secondaryDarkTextColor">#A87900</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+
+    <color name="primaryVeryLightColor">#E7ECE8</color>
+
+
+
+    //
+
+    <color name="dim_white">#66FFFFFF</color>
+
+    <color name="gray_900">#212121</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_500">#909090</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_050">#F5F5F5</color>
+    <color name="gray_000">#7F7F7F</color>
+</resources>
