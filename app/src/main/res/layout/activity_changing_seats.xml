@@ -28,6 +28,7 @@
         android:textSize="30dp" />
 
     <LinearLayout
+        android:padding="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -46,29 +47,32 @@
 
             <TextView
                 android:id="@+id/tv_seat1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
-                android:text="흰둥1"
+                android:text=" "
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
-                android:text="흰둥5"
+                android:text=" "
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥9"
+                android:text=" "
                 android:textSize="20dp" />
 
         </LinearLayout>
@@ -82,29 +86,32 @@
 
             <TextView
                 android:id="@+id/tv_seat2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥2"
+                android:text=" "
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥6"
+                android:text=" "
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥10"
+                android:text=" "
                 android:textSize="20dp" />
 
         </LinearLayout>
@@ -122,28 +129,31 @@
 
             <TextView
                 android:id="@+id/tv_seat3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥3"
+                android:text=" "
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥7"
+                android:text=" "
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
-                android:text="흰둥11"
+                android:text=" "
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -158,31 +168,34 @@
 
             <TextView
                 android:id="@+id/tv_seat4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:text="흰둥4"
+                android:text=" "
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
+                android:layout_height="40dp"
                 android:gravity="center"
-                android:text="흰둥8"
+                android:text=" "
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_seat12"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:background="@drawable/background_rectangular_gray"
                 android:textColor="@color/black"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:gravity="center"
-                android:text="흰둥12"
+                android:text=" "
                 android:textSize="20dp" />
-            
+
         </LinearLayout>
 
     </LinearLayout>

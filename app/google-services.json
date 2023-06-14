@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "905513082709",
+    "project_id": "changingseats-869c0",
+    "storage_bucket": "changingseats-869c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905513082709:android:20a59aa127f7e2ec5619dc",
+        "android_client_info": {
+          "package_name": "com.agem.changingseats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905513082709-1ing5l7jrdp86rnbde06fhks84pf3i15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ1T_apIJy6junkk4ZUgG8kQ5sGYKMKlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905513082709-1ing5l7jrdp86rnbde06fhks84pf3i15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
