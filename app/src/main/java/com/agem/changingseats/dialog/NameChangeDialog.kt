@@ -37,7 +37,7 @@ class NameChangeDialog : DialogFragment() {
 
             val memberName = binding.etMemberName.text
 
-            if (memberName.toString() == "") return@setOnClickListener
+            if (memberName.toString() == "" || memberName.toString().trim() == "") return@setOnClickListener
 
             val mInflater = LayoutInflater.from(requireContext())
             val nameTextItemView = mInflater.inflate(R.layout.item_add_text_view, null)
@@ -49,17 +49,17 @@ class NameChangeDialog : DialogFragment() {
             params.setMargins(10, 10, 10, 10)
             nameTextItemView.layoutParams = params
 
-            tvOfItemView.text = memberName
+            tvOfItemView.text = memberName.trim()
 
             for (i in 0 until nameSet.size) {
-                if (nameSet.elementAt(i) == memberName.toString()) {
+                if (nameSet.elementAt(i) == memberName.toString().trim()) {
                     Toast.makeText(requireContext(), "이미 추가된 이름입니다.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
             }
 
             binding.layoutName.addView(nameTextItemView)
-            nameSet.add(memberName.toString())
+            nameSet.add(memberName.toString().trim())
             binding.etMemberName.setText("")
 
             //추가된 이름 제거

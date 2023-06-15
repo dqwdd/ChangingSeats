@@ -2,6 +2,7 @@ package com.agem.changingseats.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import com.agem.changingseats.BaseActivity
 import com.agem.changingseats.databinding.ActivityChangingSeatsBinding
 import com.agem.changingseats.dialog.NameChangeDialog
@@ -34,7 +35,12 @@ class ChangingSeatsActivity : BaseActivity() {
             val numberChangeDialog = NumberChangeDialog.newInstance(
                 setRandomNumber = {
                     setClear()
-                    randomNumberSet(it)
+
+                    if (SharedPref.getSaveType(mContext) == "noSave") setRandomNumber(it)
+                    else {
+                        if (checkFixNumber(it)) setFixPlacementSeat(JSONObject(SharedPref.getFixPlacement(mContext)))
+                        else setRandomNumber(it)
+                    }
                 }
             )
             numberChangeDialog.show(supportFragmentManager, "numberChangeDialog")
@@ -45,10 +51,11 @@ class ChangingSeatsActivity : BaseActivity() {
                 setRandomName = {
                     setClear()
 
-                    val isFix = checkFix(it)
-
-                    if (isFix) fixNameSet(JSONObject(SharedPref.getFixPlacement(mContext)))
-                    else randomNameSet(it)
+                    if (SharedPref.getSaveType(mContext) == "noSave") setRandomName(it)
+                    else {
+                        if (checkFixName(it)) setFixPlacementSeat(JSONObject(SharedPref.getFixPlacement(mContext)))
+                        else setRandomName(it)
+                    }
                 }
             )
             nameChangeDialog.show(supportFragmentManager, "nameChangeDialog")
@@ -56,7 +63,7 @@ class ChangingSeatsActivity : BaseActivity() {
     }
 
 
-    private fun randomNumberSet(value: Int) {
+    private fun setRandomNumber(value: Int) {
         val randomValue = mutableSetOf<Int>()
         val seatArray = mutableSetOf<Int>()
 
@@ -68,11 +75,11 @@ class ChangingSeatsActivity : BaseActivity() {
         }
 
         for (i in 0 until value) {
-            setNumberSeat(seatArray.elementAt(i), randomValue.elementAt(i))
+            setRandomNumberSeat(seatArray.elementAt(i), randomValue.elementAt(i))
         }
     }
 
-    private fun setNumberSeat(setNumber: Int, randomNumber: Int) {
+    private fun setRandomNumberSeat(setNumber: Int, randomNumber: Int) {
         when (setNumber) {
             1 -> binding.tvSeat1.text = randomNumber.toString()
             2 -> binding.tvSeat2.text = randomNumber.toString()
@@ -89,22 +96,19 @@ class ChangingSeatsActivity : BaseActivity() {
         }
     }
 
-    private fun setClear() {
-        binding.tvSeat1.text = " "
-        binding.tvSeat2.text = " "
-        binding.tvSeat3.text = " "
-        binding.tvSeat4.text = " "
-        binding.tvSeat5.text = " "
-        binding.tvSeat6.text = " "
-        binding.tvSeat7.text = " "
-        binding.tvSeat8.text = " "
-        binding.tvSeat9.text = " "
-        binding.tvSeat10.text = " "
-        binding.tvSeat11.text = " "
-        binding.tvSeat12.text = " "
+    private fun checkFixNumber(value: Int): Boolean {
+        if (SharedPref.getFixPlacement(mContext).length == value) {
+            Log.e("tetest", "124")
+        } else {
+            Log.e("tetest", "0000")
+            Log.e("tetest", "value == $value")
+            Log.e("tetest", "SharedPref.getFixPlacement(mContext).length == ${SharedPref.getFixPlacement(mContext).length}")
+        }
+
+        return SharedPref.getFixPlacement(mContext).length == value
     }
 
-    private fun randomNameSet(value: MutableSet<String>) {
+    private fun setRandomName(value: MutableSet<String>) {
         val randomValue = mutableSetOf<Int>()
 
         while(randomValue.size < value.size) {
@@ -133,7 +137,7 @@ class ChangingSeatsActivity : BaseActivity() {
         }
     }
 
-    private fun checkFix(it: MutableSet<String>): Boolean {
+    private fun checkFixName(it: MutableSet<String>): Boolean {
         if (it.size == JSONObject(SharedPref.getFixPlacement(mContext)).length()) {
 
             var check = 0
@@ -153,9 +157,9 @@ class ChangingSeatsActivity : BaseActivity() {
             if (fixObj.optString("seat11", "") != "") objIt.add(fixObj.optString("seat11", ""))
             if (fixObj.optString("seat12", "") != "") objIt.add(fixObj.optString("seat12", ""))
 
-            it.forEach {
+            it.forEach { it1 ->
                 objIt.forEach { objIt ->
-                    if (it == objIt) check += 1
+                    if (it1 == objIt) check += 1
                 }
             }
 
@@ -165,7 +169,7 @@ class ChangingSeatsActivity : BaseActivity() {
         }
     }
 
-    private fun fixNameSet(fixObj: JSONObject) {
+    private fun setFixPlacementSeat(fixObj: JSONObject) {
         if (fixObj.optString("seat1", "") != "") binding.tvSeat1.text = fixObj.optString("seat1", "")
         if (fixObj.optString("seat2", "") != "") binding.tvSeat2.text = fixObj.optString("seat2", "")
         if (fixObj.optString("seat3", "") != "") binding.tvSeat3.text = fixObj.optString("seat3", "")
@@ -178,5 +182,20 @@ class ChangingSeatsActivity : BaseActivity() {
         if (fixObj.optString("seat10", "") != "") binding.tvSeat10.text = fixObj.optString("seat10", "")
         if (fixObj.optString("seat11", "") != "") binding.tvSeat11.text = fixObj.optString("seat11", "")
         if (fixObj.optString("seat12", "") != "") binding.tvSeat12.text = fixObj.optString("seat12", "")
+    }
+
+    private fun setClear() {
+        binding.tvSeat1.text = " "
+        binding.tvSeat2.text = " "
+        binding.tvSeat3.text = " "
+        binding.tvSeat4.text = " "
+        binding.tvSeat5.text = " "
+        binding.tvSeat6.text = " "
+        binding.tvSeat7.text = " "
+        binding.tvSeat8.text = " "
+        binding.tvSeat9.text = " "
+        binding.tvSeat10.text = " "
+        binding.tvSeat11.text = " "
+        binding.tvSeat12.text = " "
     }
 }
