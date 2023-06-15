@@ -64,8 +64,8 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_seat1"
+                    <EditText
+                        android:id="@+id/et_seat1"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/background_rectangular_gray"
@@ -74,8 +74,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat5"
+                    <EditText
+                        android:id="@+id/et_seat5"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -85,8 +85,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat9"
+                    <EditText
+                        android:id="@+id/et_seat9"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -105,8 +105,8 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_seat2"
+                    <EditText
+                        android:id="@+id/et_seat2"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/background_rectangular_gray"
@@ -115,8 +115,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat6"
+                    <EditText
+                        android:id="@+id/et_seat6"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -126,8 +126,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat10"
+                    <EditText
+                        android:id="@+id/et_seat10"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -150,8 +150,8 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_seat3"
+                    <EditText
+                        android:id="@+id/et_seat3"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/background_rectangular_gray"
@@ -160,8 +160,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat7"
+                    <EditText
+                        android:id="@+id/et_seat7"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -171,8 +171,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat11"
+                    <EditText
+                        android:id="@+id/et_seat11"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -191,8 +191,8 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_seat4"
+                    <EditText
+                        android:id="@+id/et_seat4"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/background_rectangular_gray"
@@ -201,8 +201,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat8"
+                    <EditText
+                        android:id="@+id/et_seat8"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -212,8 +212,8 @@
                         android:textColor="@color/black"
                         android:textSize="20dp" />
 
-                    <TextView
-                        android:id="@+id/tv_seat12"
+                    <EditText
+                        android:id="@+id/et_seat12"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="20dp"
@@ -233,29 +233,16 @@
                 android:layout_weight="1" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_number_fix"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/background_green_button"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="번호로 자리 정하기"
-                android:textSize="20sp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_name_fix"
+                android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/background_yellow_start"
+                android:background="@drawable/background_gray_button"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="이름으로 자리 정하기"
+                android:text="저장하기"
                 android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -266,7 +253,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="30dp"
-                android:background="@color/gray"
+                android:background="@drawable/background_gray_button"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="저장 초기화하기"

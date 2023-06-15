@@ -6,6 +6,8 @@ import com.agem.changingseats.BaseActivity
 import com.agem.changingseats.databinding.ActivityChangingSeatsBinding
 import com.agem.changingseats.dialog.NameChangeDialog
 import com.agem.changingseats.dialog.NumberChangeDialog
+import com.agem.changingseats.util.SharedPref
+import org.json.JSONObject
 
 class ChangingSeatsActivity : BaseActivity() {
 
@@ -27,11 +29,6 @@ class ChangingSeatsActivity : BaseActivity() {
         binding.ivBack.setOnClickListener {
             finish()
         }
-        //반 추가하기
-//        binding.btnAddClass.setOnClickListener {
-//            val addClassDialog = AddClassDialog.newInstance()
-//            addClassDialog.show(supportFragmentManager, "addClassDialog")
-//        }
         //인원수로 자리 정하기
         binding.btnNumberChange.setOnClickListener {
             val numberChangeDialog = NumberChangeDialog.newInstance(
@@ -47,7 +44,11 @@ class ChangingSeatsActivity : BaseActivity() {
             val nameChangeDialog = NameChangeDialog.newInstance(
                 setRandomName = {
                     setClear()
-                    randomNameSet(it)
+
+                    val isFix = checkFix(it)
+
+                    if (isFix) fixNameSet(JSONObject(SharedPref.getFixPlacement(mContext)))
+                    else randomNameSet(it)
                 }
             )
             nameChangeDialog.show(supportFragmentManager, "nameChangeDialog")
@@ -130,5 +131,52 @@ class ChangingSeatsActivity : BaseActivity() {
             11 -> binding.tvSeat11.text = name
             12 -> binding.tvSeat12.text = name
         }
+    }
+
+    private fun checkFix(it: MutableSet<String>): Boolean {
+        if (it.size == JSONObject(SharedPref.getFixPlacement(mContext)).length()) {
+
+            var check = 0
+            val objIt = mutableSetOf<String>()
+            val fixObj = JSONObject(SharedPref.getFixPlacement(mContext))
+
+            if (fixObj.optString("seat1", "") != "") objIt.add(fixObj.optString("seat1", ""))
+            if (fixObj.optString("seat2", "") != "") objIt.add(fixObj.optString("seat2", ""))
+            if (fixObj.optString("seat3", "") != "") objIt.add(fixObj.optString("seat3", ""))
+            if (fixObj.optString("seat4", "") != "") objIt.add(fixObj.optString("seat4", ""))
+            if (fixObj.optString("seat5", "") != "") objIt.add(fixObj.optString("seat5", ""))
+            if (fixObj.optString("seat6", "") != "") objIt.add(fixObj.optString("seat6", ""))
+            if (fixObj.optString("seat7", "") != "") objIt.add(fixObj.optString("seat7", ""))
+            if (fixObj.optString("seat8", "") != "") objIt.add(fixObj.optString("seat8", ""))
+            if (fixObj.optString("seat9", "") != "") objIt.add(fixObj.optString("seat9", ""))
+            if (fixObj.optString("seat10", "") != "") objIt.add(fixObj.optString("seat10", ""))
+            if (fixObj.optString("seat11", "") != "") objIt.add(fixObj.optString("seat11", ""))
+            if (fixObj.optString("seat12", "") != "") objIt.add(fixObj.optString("seat12", ""))
+
+            it.forEach {
+                objIt.forEach { objIt ->
+                    if (it == objIt) check += 1
+                }
+            }
+
+            return check == it.size
+        } else {
+            return false
+        }
+    }
+
+    private fun fixNameSet(fixObj: JSONObject) {
+        if (fixObj.optString("seat1", "") != "") binding.tvSeat1.text = fixObj.optString("seat1", "")
+        if (fixObj.optString("seat2", "") != "") binding.tvSeat2.text = fixObj.optString("seat2", "")
+        if (fixObj.optString("seat3", "") != "") binding.tvSeat3.text = fixObj.optString("seat3", "")
+        if (fixObj.optString("seat4", "") != "") binding.tvSeat4.text = fixObj.optString("seat4", "")
+        if (fixObj.optString("seat5", "") != "") binding.tvSeat5.text = fixObj.optString("seat5", "")
+        if (fixObj.optString("seat6", "") != "") binding.tvSeat6.text = fixObj.optString("seat6", "")
+        if (fixObj.optString("seat7", "") != "") binding.tvSeat7.text = fixObj.optString("seat7", "")
+        if (fixObj.optString("seat8", "") != "") binding.tvSeat8.text = fixObj.optString("seat8", "")
+        if (fixObj.optString("seat9", "") != "") binding.tvSeat9.text = fixObj.optString("seat9", "")
+        if (fixObj.optString("seat10", "") != "") binding.tvSeat10.text = fixObj.optString("seat10", "")
+        if (fixObj.optString("seat11", "") != "") binding.tvSeat11.text = fixObj.optString("seat11", "")
+        if (fixObj.optString("seat12", "") != "") binding.tvSeat12.text = fixObj.optString("seat12", "")
     }
 }

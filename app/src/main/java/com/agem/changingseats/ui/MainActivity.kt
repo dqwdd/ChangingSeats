@@ -2,8 +2,11 @@ package com.agem.changingseats.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.agem.changingseats.BaseActivity
 import com.agem.changingseats.databinding.ActivityMainBinding
+import com.agem.changingseats.util.SharedPref
+import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
@@ -19,7 +22,29 @@ class MainActivity : BaseActivity() {
         setupEvent()
     }
 
-    override fun setValues() {}
+    override fun setValues() {
+
+
+//        val hash = HashMap<String, String>()
+//        hash["movie"] = "lala land"
+//        hash["music"] = "city of star"
+//
+//        SharedPref.setFixPlacement(mContext, hash)
+//        val obj = JSONObject(SharedPref.getFixPlacement(mContext))
+//
+//        Log.e("tetest", "movie == ${obj.optString("movie", "")}")
+//
+//        try {
+//            Log.e("tetest", "test == ${obj.optString("test", "")}")
+//
+//            if (obj.optString("test", "") == "") {
+//                Log.e("tetest", "testtt")
+//            }
+//        } catch (e: Exception) {
+//            Log.e("tetest", "e == $e")
+//        }
+
+    }
 
     override fun setupEvent() {
         binding.btnChangingSeats.setOnClickListener {
