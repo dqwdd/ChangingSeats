@@ -12,19 +12,19 @@
         android:theme="@style/Theme.ChangingSeats"
         tools:targetApi="31">
         <activity
-            android:name=".ChangingSeatsActivity"
+            android:name=".ui.ChangingSeatsActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".CustomSeatActivity"
+            android:name=".ui.CustomSeatActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>

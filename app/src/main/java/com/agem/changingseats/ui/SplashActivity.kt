@@ -1,15 +1,17 @@
-package com.agem.changingseats
+package com.agem.changingseats.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import com.agem.changingseats.BaseActivity
 import com.agem.changingseats.databinding.ActivitySplashBinding
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
 
-    lateinit var binding: ActivitySplashBinding
+    private val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setValues()

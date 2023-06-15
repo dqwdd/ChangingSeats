@@ -1,10 +1,9 @@
-package com.agem.changingseats
+package com.agem.changingseats.dialog
 
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.agem.changingseats.R
 import com.agem.changingseats.databinding.FragmentNameChangeDialogBinding
 
 class NameChangeDialog : DialogFragment() {
@@ -28,18 +28,18 @@ class NameChangeDialog : DialogFragment() {
     ): View {
         binding = FragmentNameChangeDialogBinding.inflate(layoutInflater, container, false)
 
-//        dialog?.window?.setBackgroundDrawableResource(R.drawable.background_dialog)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
         dialog?.setCanceledOnTouchOutside(true)
 
-        val mContext = requireContext()
-
+        //이름 추가
         binding.btnNameAdd.setOnClickListener {
 
             val memberName = binding.etMemberName.text
 
-            val mInflater = LayoutInflater.from(mContext)
+            if (memberName.toString() == "") return@setOnClickListener
+
+            val mInflater = LayoutInflater.from(requireContext())
             val nameTextItemView = mInflater.inflate(R.layout.item_add_text_view, null)
             val tvOfItemView = nameTextItemView.findViewById<TextView>(R.id.tv_name)
 
@@ -51,11 +51,9 @@ class NameChangeDialog : DialogFragment() {
 
             tvOfItemView.text = memberName
 
-            val tt:String = memberName.toString()
-
             for (i in 0 until nameSet.size) {
-                if (nameSet.elementAt(i) == tt) {
-                    Toast.makeText(mContext, "이미 추가된 이름입니다.", Toast.LENGTH_SHORT).show()
+                if (nameSet.elementAt(i) == memberName.toString()) {
+                    Toast.makeText(requireContext(), "이미 추가된 이름입니다.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
             }
@@ -64,23 +62,24 @@ class NameChangeDialog : DialogFragment() {
             nameSet.add(memberName.toString())
             binding.etMemberName.setText("")
 
+            //추가된 이름 제거
             tvOfItemView.setOnClickListener {
                 nameSet.remove(memberName.toString())
                 (nameTextItemView.parent as ViewGroup).removeView(nameTextItemView)
             }
         }
 
+        //자리뽑기
         binding.btnPickASeat.setOnClickListener {
             try {
-                randomNameSet?.let {
+                setRandomName?.let {
                     it(nameSet)
                 }
 
-                Toast.makeText(mContext, "자리를 뽑았습니다!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "자리를 뽑았습니다!", Toast.LENGTH_SHORT).show()
                 dismiss()
             } catch (e: Exception) {
-                Log.e("tetest", "e == $e")
-                Toast.makeText(mContext, "에러입니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "에러입니다", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -88,12 +87,12 @@ class NameChangeDialog : DialogFragment() {
     }
 
     companion object {
-        private var randomNameSet: ((value: MutableSet<String>) -> Unit)? = null
+        private var setRandomName: ((value: MutableSet<String>) -> Unit)? = null
 
         fun newInstance(
-            randomNameSet: ((value: MutableSet<String>) -> Unit)? = null
+            setRandomName: ((value: MutableSet<String>) -> Unit)? = null
         ): NameChangeDialog {
-            this.randomNameSet = randomNameSet
+            Companion.setRandomName = setRandomName
 
             return NameChangeDialog()
         }

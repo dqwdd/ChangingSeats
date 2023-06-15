@@ -1,25 +1,18 @@
-package com.agem.changingseats
+package com.agem.changingseats.ui
 
 import android.annotation.SuppressLint
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import com.agem.changingseats.BaseActivity
 import com.agem.changingseats.databinding.ActivityChangingSeatsBinding
+import com.agem.changingseats.dialog.NameChangeDialog
+import com.agem.changingseats.dialog.NumberChangeDialog
 
 class ChangingSeatsActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityChangingSeatsBinding
-
-    private val nameSet = mutableSetOf<String>()
+    private val binding by lazy { ActivityChangingSeatsBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChangingSeatsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setValues()
@@ -30,40 +23,29 @@ class ChangingSeatsActivity : BaseActivity() {
 
     @SuppressLint("InflateParams")
     override fun setupEvent() {
+        //나가기
         binding.ivBack.setOnClickListener {
             finish()
         }
+        //반 추가하기
+//        binding.btnAddClass.setOnClickListener {
+//            val addClassDialog = AddClassDialog.newInstance()
+//            addClassDialog.show(supportFragmentManager, "addClassDialog")
+//        }
+        //인원수로 자리 정하기
         binding.btnNumberChange.setOnClickListener {
-            val alert = Dialog(this@ChangingSeatsActivity)
-            alert.setContentView(R.layout.dialog_number_change)
-            alert.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            alert.setCancelable(true)
-
-            val etHowManyMember = alert.findViewById<EditText>(R.id.et_how_many_member)
-            val btnPickASeat = alert.findViewById<Button>(R.id.btn_pick_a_seat)
-
-            val numberOfMember = etHowManyMember.text
-
-            alert.show()
-
-            btnPickASeat.setOnClickListener {
-                try {
-                    if (numberOfMember.toString().toInt() > 12) return@setOnClickListener
-
+            val numberChangeDialog = NumberChangeDialog.newInstance(
+                setRandomNumber = {
                     setClear()
-                    randomNumberSet(numberOfMember.toString().toInt())
-
-                    Toast.makeText(mContext, "자리를 뽑았습니다!", Toast.LENGTH_SHORT).show()
-                    alert.dismiss()
-                } catch (e: Exception) {
-                    Log.e("tetest", "e == $e")
-                    Toast.makeText(mContext, "에러입니다", Toast.LENGTH_SHORT).show()
+                    randomNumberSet(it)
                 }
-            }
+            )
+            numberChangeDialog.show(supportFragmentManager, "numberChangeDialog")
         }
+        //이름으로 자리 정하기
         binding.btnNameChange.setOnClickListener {
             val nameChangeDialog = NameChangeDialog.newInstance(
-                randomNameSet = {
+                setRandomName = {
                     setClear()
                     randomNameSet(it)
                 }
@@ -72,12 +54,13 @@ class ChangingSeatsActivity : BaseActivity() {
         }
     }
 
+
     private fun randomNumberSet(value: Int) {
         val randomValue = mutableSetOf<Int>()
         val seatArray = mutableSetOf<Int>()
 
         while(randomValue.size < value) {
-            randomValue.add((1..12).random())
+            randomValue.add((1..value).random()) //1부터 value 까지 (value 포함)
         }
         while(seatArray.size < 12) {
             seatArray.add((1..12).random())
