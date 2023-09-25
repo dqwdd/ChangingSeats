@@ -28,8 +28,7 @@ class NumberChangeDialog : DialogFragment() {
 
         binding.btnPickASeat.setOnClickListener {
             try {
-                if (binding.etHowManyMember.text.toString().toInt() > 12)
-                    return@setOnClickListener
+                if (binding.etHowManyMember.text.toString().toInt() > 12) return@setOnClickListener
 
                 setRandomNumber?.let {
                     it(binding.etHowManyMember.text.toString().toInt())
@@ -45,8 +44,7 @@ class NumberChangeDialog : DialogFragment() {
         return binding.root
     }
 
-    companion object {
-        private var setRandomNumber: ((numberOfMember: Int) -> Unit)? = null
+    companion object { private var setRandomNumber: ((numberOfMember: Int) -> Unit)? = null
 
         fun newInstance(
             setRandomNumber: ((numberOfMember: Int) -> Unit)? = null
