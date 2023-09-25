@@ -28,7 +28,8 @@ class NumberChangeDialog : DialogFragment() {
 
         binding.btnPickASeat.setOnClickListener {
             try {
-                if (binding.etHowManyMember.text.toString().toInt() > 12) return@setOnClickListener
+                if (binding.etHowManyMember.text.toString().toInt() > 12)
+                    return@setOnClickListener
 
                 setRandomNumber?.let {
                     it(binding.etHowManyMember.text.toString().toInt())
